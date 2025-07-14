@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>{{headerTitle}}</h1>
+        </div>
+        <div class="links-container">
+            {{#each links}}
+            <a href="{{this.url}}">
+                <div class="link-container">
+                    <img src="{{this.image}}"/>
+                    <p>{{this.description}}</p>
+                </div>
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>

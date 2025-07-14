@@ -1,0 +1,58 @@
+body {
+    background-color: #222222;
+    font-family: 'Verdana';
+    color: #dbd9d4;
+}
+
+.header {
+    padding: 5px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.links-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.links-container > a {
+        text-decoration: none; /* Removes underline */
+        color: inherit; /* Inherits text color from parent */
+        display: inline-block; /* Ensures proper sizing */
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 175px;
+    height: 175px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10%;
+    background-color: #272727;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.link-container:hover {
+    background-color: #3a3a3a; /* Lighter background */
+    box-shadow: 0 0 15px rgba(151, 151, 151, 0.3); /* Soft white glow */
+}
+
+.link-container:hover > img {
+    transform: scale(1.1); /* Slight "pop" effect (optional) */
+}
+
+.link-container > img {
+    height: 100px;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.link-container > p {
+    pointer-events: none;
+}

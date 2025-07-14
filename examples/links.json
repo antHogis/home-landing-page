@@ -1,0 +1,17 @@
+[
+    {
+        "url": "https://jellyfin.org/",
+        "image": "/link-images/jellyfin.png",
+        "description": "Jellyfin"
+    },
+    {
+        "url": "https://www.home-assistant.io",
+        "image": "/link-images/home-assistant.png",
+        "description": "Home Assistant"
+    },
+    {
+        "url": "https://healthchecks.io",
+        "image": "/link-images/health-checks.png",
+        "description": "Health checks"
+    }
+]

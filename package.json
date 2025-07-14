@@ -1,0 +1,23 @@
+{
+  "name": "home-landing-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prestart": "node ./scripts/link-example-images.js",
+    "start": "NODE_ENV=dev node src/index.js"
+  },
+  "author": "Anton Höglund",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@fastify/static": "^8.2.0",
+    "@fastify/view": "^11.1.0",
+    "envious-type": "^1.1.0",
+    "fastify": "^5.4.0",
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13"
+  }
+}
