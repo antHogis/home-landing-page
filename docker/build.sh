@@ -13,7 +13,7 @@ docker build . -t $NAME -f ./docker/Dockerfile
 
 case $MODE in
     push)
-    echo "TODO implement push"
+	docker push $NAME
     ;;
 
     it)
