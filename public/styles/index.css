@@ -1,13 +1,17 @@
 body {
     background-color: #222222;
-    font-family: 'Verdana';
+    font-family: 'Lato', sans-serif;
     color: #dbd9d4;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 .header {
     padding: 5px;
     text-align: center;
     font-size: 25px;
+    pointer-events: none;
 }
 
 .links-container {
@@ -16,6 +20,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .links-container > a {
@@ -55,4 +61,85 @@ body {
 
 .link-container > p {
     pointer-events: none;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+    .link-container {
+        width: 200px !important;
+        height: 200px !important;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .link-container > img {
+        height: 120px !important;
+    }
+    
+    .link-container > p {
+        font-size: 14px !important;
+    }
+    
+    .header {
+        font-size: 22px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    .links-container {
+        flex-direction: row;
+        padding: 15px;
+        justify-content: center;
+    }
+    
+    .link-container {
+        width: 140px !important;
+        height: 140px !important;
+        margin: 8px !important;
+        padding: 10px !important;
+    }
+    
+    .link-container > img {
+        height: 80px !important;
+    }
+    
+    .link-container > p {
+        font-size: 12px !important;
+        margin-top: 5px !important;
+    }
+    
+    .header {
+        font-size: 20px;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 360px) {
+    .links-container {
+        padding: 10px;
+    }
+    
+    .link-container {
+        width: 120px !important;
+        height: 120px !important;
+        margin: 6px !important;
+        padding: 8px !important;
+    }
+    
+    .link-container > img {
+        height: 70px !important;
+    }
+    
+    .link-container > p {
+        font-size: 11px !important;
+        margin-top: 4px !important;
+    }
+    
+    .header {
+        font-size: 18px;
+    }
 }
