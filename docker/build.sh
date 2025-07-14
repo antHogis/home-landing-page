@@ -9,11 +9,27 @@ APP="ahogis/home-landing-page"
 TAG=$(node -e 'console.log(require("./package.json").version)')
 NAME="${APP}:${TAG}"
 
-docker build . -t $NAME -f ./docker/Dockerfile
-
 case $MODE in
+    local)
+    # Build for current architecture only and load into local images
+    docker buildx build --platform linux/amd64 -t $NAME -f ./docker/Dockerfile . --load
+    ;;
+    
+    multiarch)
+    # Create and use a new builder instance for multi-arch builds
+    docker buildx create --name multiarch-builder --use 2>/dev/null || docker buildx use multiarch-builder
+    
+    # Build for multiple architectures (without pushing)
+    # Note: Multi-platform builds stay in build cache, not local images
+    docker buildx build --platform linux/amd64,linux/arm64 -t $NAME -f ./docker/Dockerfile .
+    ;;
+    
     push)
-	docker push $NAME
+    # Create and use a new builder instance for multi-arch builds
+    docker buildx create --name multiarch-builder --use 2>/dev/null || docker buildx use multiarch-builder
+    
+    # Build and push multi-architecture image directly to registry
+    docker buildx build --platform linux/amd64,linux/arm64 -t $NAME -f ./docker/Dockerfile . --push
     ;;
 
     it)
@@ -33,6 +49,11 @@ case $MODE in
     ;;
 
     *)
-    echo "Warning: No mode specified"
+    echo "Usage: $0 {local|multiarch|push|it|run}"
+    echo "  local         - Build for current architecture only"
+    echo "  multiarch     - Build for amd64 and arm64 architectures (build cache only)"
+    echo "  push          - Push existing multi-architecture image to registry"
+    echo "  it            - Run interactive shell"
+    echo "  run           - Run the application"
     ;;
 esac

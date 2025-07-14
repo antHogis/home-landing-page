@@ -1,4 +1,4 @@
-FROM node:24 AS builder
+FROM --platform=$BUILDPLATFORM node:24 AS builder
 
 WORKDIR /app
 
@@ -11,4 +11,4 @@ COPY --from=builder /app /app
 
 EXPOSE 80
 ENV NODE_ENV=prod
-CMD node /app/src/index.js
+CMD ["node", "/app/src/index.js"]
