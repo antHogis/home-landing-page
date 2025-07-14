@@ -4,13 +4,12 @@ import fastifyStatic from '@fastify/static';
 import Handlebars from 'handlebars';
 
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-import { config, readLinkConfig } from './config.js';
+import { config, readLinkConfig, watchLinkConfigUpdate } from './config.js';
 
 const links = await readLinkConfig();
+watchLinkConfigUpdate(links);
 
-const __filename = fileURLToPath(import.meta.url);
 const __dirname = import.meta.dirname;
 
 const fastify = Fastify({ logger: true });
